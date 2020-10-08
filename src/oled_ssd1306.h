@@ -75,7 +75,7 @@ protected:
 #if defined(__MBED__)
     I2C &_i2c;
 #elif defined(__ZEPHYR__)
-    struct device *_i2c;
+    const struct device *_i2c;
 #endif
 
     uint8_t _i2cAddress;
