@@ -15,8 +15,14 @@
 #if defined(__MBED__)
 #include "mbed.h"
 #elif defined(__ZEPHYR__)
+#include <version.h>
+#if ZEPHYR_VERSION_CODE >= 0x030100
+#include <zephyr/kernel.h>
+#include <zephyr/drivers/i2c.h>
+#else
 #include <zephyr.h>
 #include <drivers/i2c.h>
+#endif
 #endif
 
 #include "adafruit_gfx.h"
