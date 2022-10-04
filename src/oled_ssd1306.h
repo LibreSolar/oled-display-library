@@ -53,6 +53,7 @@ public:
     OledSSD1306(I2C &i2c, uint8_t i2cAddress = (SSD1306_I2C_ADDRESS << 1));
 #elif defined(__ZEPHYR__)
     OledSSD1306(const char *i2c_name, uint8_t i2cAddress = SSD1306_I2C_ADDRESS);
+    OledSSD1306(const struct device *i2c_dev, uint8_t i2cAddress = SSD1306_I2C_ADDRESS);
 #endif
 
     void init(uint8_t brightness = 0x01);

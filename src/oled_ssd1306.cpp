@@ -56,6 +56,16 @@ OledSSD1306::OledSSD1306(const char *i2c_name, uint8_t i2cAddress) :
 	}
 }
 
+OledSSD1306::OledSSD1306(const struct device *i2c_dev, uint8_t i2cAddress) :
+    Adafruit_GFX(SSD1306_WIDTH, SSD1306_HEIGHT),
+    _i2c(i2c_dev),
+    _i2cAddress(i2cAddress)
+{
+	if (!device_is_ready(_i2c)) {
+		printk("I2C: Device driver not ready.\n");
+	}
+}
+
 #endif
 
 void OledSSD1306::init(uint8_t brightness)
